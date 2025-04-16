@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ],
+  "build": {
+    "env": {
+      "REACT_APP_SOLANA_NETWORK": "devnet",
+      "REACT_APP_ADMIN_WALLETS": "6s5sjaPDYXVzbBnDjfxWqbD4K5qi9yvdWchtgoqDESjJ"
+    }
+  }
+}

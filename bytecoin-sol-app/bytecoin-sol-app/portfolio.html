@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ByteCoin on Sol - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="portfolio.css">
+  <!-- Solana Web3 -->
+  <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+  <!-- Wallet Adapter -->
+  <script src="https://unpkg.com/@solana/wallet-adapter-base/lib/index.iife.js"></script>
+  <script src="https://unpkg.com/@solana/wallet-adapter-wallets/lib/index.iife.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">ByteCoin on Sol</div>
+      <div class="wallet-button-container" id="wallet-button-container">
+        <button class="connect-wallet-btn" id="connect-wallet-btn">Connect Wallet</button>
+      </div>
+    </header>
+    
+    <main class="app-content">
+      <div class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="#wallet-test">Wallet Test</a></li>
+            <li><a href="#admin">Admin</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="content">
+        <div class="welcome-card">
+          <h1>Portfolio</h1>
+          <p>View and manage your crypto assets</p>
+          
+          <div id="portfolio-section" class="portfolio-section">
+            <!-- Portfolio content will be loaded here -->
+          </div>
+        </div>
+        
+        <div class="admin-notice">
+          <h3>Admin Information</h3>
+          <p>Admin Address: 6s5sjaPDYXVzbBnDjfxWqbD4K5qi9yvdWchtgoqDESjJ</p>
+          <p>Fee Rate: 3%</p>
+          <p>All collected fees are automatically sent to the admin address</p>
+        </div>
+      </div>
+    </main>
+    
+    <footer class="app-footer">
+      <p>&copy; 2025 ByteCoin on Sol. All rights reserved.</p>
+    </footer>
+  </div>
+  
+  <div class="notification-container" id="notification-container"></div>
+  
+  <script src="wallet.js"></script>
+  <script src="portfolio.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Solana connection
+      const connection = window.walletFunctions.initSolanaConnection();
+      
+      // Initialize portfolio page
+      if (window.portfolioFunctions) {
+        window.portfolioFunctions.initPortfolioPage();
+      }
+      
+      // Add event listener for wallet connection changes
+      document.addEventListener('walletConnectionChanged', function(event) {
+        if (event.detail.connected && window.portfolioFunctions) {
+          window.portfolioFunctions.initPortfolioPage();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

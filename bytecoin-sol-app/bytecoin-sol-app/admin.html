@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteCoin on Sol - Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="ByteCoin Logo">
+                <span>ByteCoin</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="portfolio.html"><span class="icon">💰</span> Portfolio</a></li>
+                <li><a href="send-receive.html"><span class="icon">↔️</span> Send/Receive</a></li>
+                <li><a href="swap.html"><span class="icon">🔄</span> Swap</a></li>
+                <li><a href="games.html"><span class="icon">🎮</span> Games</a></li>
+                <li><a href="fees.html"><span class="icon">💸</span> Fees</a></li>
+                <li class="active"><a href="admin.html"><span class="icon">⚙️</span> Admin</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <p>ByteCoin v1.0</p>
+                <p>© 2025 ByteCoin</p>
+            </div>
+        </nav>
+        
+        <main class="main-content">
+            <header class="app-header">
+                <h1>Admin Panel</h1>
+                <div class="wallet-connect-container" id="wallet-connect-container">
+                    <!-- Wallet connect button will be inserted here -->
+                </div>
+            </header>
+            
+            <section class="content-section" id="admin-section">
+                <!-- Admin content will be inserted here -->
+            </section>
+            
+            <div id="notification-container" class="notification-container">
+                <!-- Notifications will be inserted here -->
+            </div>
+        </main>
+    </div>
+    
+    <script src="wallet.js"></script>
+    <script src="app.js"></script>
+    <script src="admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize wallet
+            window.walletFunctions.initWalletAdapter();
+            
+            // Initialize admin page
+            window.adminFunctions.initAdminPage();
+        });
+    </script>
+</body>
+</html>
